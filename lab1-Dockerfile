@@ -1,3 +1,16 @@
 # use this empty Dockerfile to build your assignment
 
+FROM node:6-alpine
+
+WORKDIR /usr/share/nginx/html
+# change working directory to root of nginx webhost
+# using WORKDIR is preferred to using 'RUN cd /some/path'
+
+EXPOSE 3000
+
+RUN apk add --no-cache tini
+WORKDIR /usr/src/app
+
+COPY index.html index.html
+
 # NOTE: The instructions are now in the README.md file in this directory.
