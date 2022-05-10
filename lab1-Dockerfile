@@ -19,5 +19,5 @@ RUN npm install && npm cache clean --force
 
 COPY . .
 
-CMD ["tini", "--", "node", "./bin/ww"]
+CMD ["/sbin/tini", "--", "node", "./bin/ww"]
 # NOTE: The instructions are now in the README.md file in this directory.
