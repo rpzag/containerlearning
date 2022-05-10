@@ -9,7 +9,7 @@ WORKDIR /usr/share/nginx/html
 EXPOSE 3000
 
 RUN apk add --no-cache tini \
-  && mkdir /usr/src/app \
+  && mkdir -p /usr/src/app \
   && WORKDIR /usr/src/app \
   && COPY package.json package.json \
   && npm install \
