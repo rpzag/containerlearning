@@ -10,11 +10,14 @@ EXPOSE 3000
 
 RUN apk add --no-cache tini \
   && mkdir -p /usr/src/app \
-  && cd /usr/src/app \
-  && COPY package.json . \
-  && npm install \
+  && cd /usr/src/app
+
+COPY package.json package.json
+
+RUN npm install \
   && npm cache clean --force \
-  && COPY *.* 
+
+COPY *.* 
 
 CMD ["/sbin/tin", "-- node", "./bin/www"]
 
