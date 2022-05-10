@@ -1,25 +1,15 @@
-# use this empty Dockerfile to build your assignment
-
 FROM node:6-alpine
-
-WORKDIR /usr/share/nginx/html
-# change working directory to root of nginx webhost
-# using WORKDIR is preferred to using 'RUN cd /some/path'
 
 EXPOSE 3000
 
-RUN apk add --no-cache tini \
-  && mkdir -p /usr/src/app \
-  && cd /usr/src/app
+RUN apk add --no-cache tini
+
+WORKDIR /usr/src/app
 
 COPY package.json package.json
 
-RUN npm install \
-  && npm cache clean --force 
+RUN npm install && npm cache clean --force
 
-COPY *.* ./
+COPY . .
 
-RUN ls
-
-CMD ["/sbin/tini", "--", "node", "./bin/www"]
-# NOTE: The instructions are now in the README.md file in this directory.
+CMD [ "/sbin/tini", "--", "node", "./bin/www" ]
