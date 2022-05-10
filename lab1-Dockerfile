@@ -9,16 +9,15 @@ WORKDIR /usr/share/nginx/html
 EXPOSE 3000
 
 RUN apk add --no-cache tini \
-  && mkdir -p /usr/src/app \
-  && cd /usr/src/app
+  && mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
 
 COPY package.json package.json
 
-RUN npm install \
-  && npm cache clean --force \
+RUN npm install && npm cache clean --force 
 
-COPY *.* 
+COPY . .
 
-CMD ["/sbin/tin", "-- node", "./bin/www"]
-
+CMD ["tini", "--", "node", "./bin/ww"]
 # NOTE: The instructions are now in the README.md file in this directory.
