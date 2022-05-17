@@ -1,0 +1,16 @@
+version: '3.1'
+
+# this is a build example. builds a custom image and launches a website that points to an existing mount pount where html files exist
+
+services: # containers. same as docker run.
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports: 
+      - '80:80'
+  
+ web:
+    image: httpd
+    volumes: 
+        - './html:/usr/local/apache2/htdocs/'
