@@ -17,6 +17,9 @@ services: # containers. same as docker run.
     volumes: 
         - 'drupalmodules:/var/www/html/modules'
   
+ volumes:
+    volume-name: drupalmodules
+    driver: local
   
  ## Example:
  # same as docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
