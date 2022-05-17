@@ -11,9 +11,9 @@ services: # containers. same as docker run.
     ports:
       - 443
     environment:
-      POSTGRES_DB=drupal
-      POSTGRES_USER=user
-      POSTGRES_PASSWORD=passw0rdda
+      POSTGRES_DB:drupal
+      POSTGRES_USER:user
+      POSTGRES_PASSWORD:passw0rdda
     volumes: 
       - drupal-modules:/var/www/html/modules
   
