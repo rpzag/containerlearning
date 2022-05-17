@@ -1,0 +1,37 @@
+version: '3.1'
+
+services: # containers. same as docker run.
+  servicename: # a friendly name. this is also a dns name inside the network (similar to --name on docker run)
+    image: # Optional if you use build
+    command: # optional, replace the default CMD specified by the image
+    ports: # optional, same as -p in docker run
+    environment: # optional, same as -e in docker run
+    volumes: # optional, same as -v in docker run
+    depends_on: # optional, other service names that there's a dependancy for
+  servicename2:
+  
+ volumes: # optional, same as docker volume create
+ 
+ networks: # optional, same as docker network create
+ 
+ ## Example:
+ # same as docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
+ #
+ # services:
+ #    jekyll:
+ #       image: bretfisher/jekyll-serve
+ #       volume:
+ #         - .:/site  (note: compose understands that . is the same as $(pwd)
+ #       ports:
+ #         - '80:4000'
+ #
+ #    wordpress:
+ #       image: wordpress
+ #       ports:
+ #         - 8080:80
+ #       environment:
+ #         WORDPRESS_DB_PASSWORD: example
+ #         NewVar: NewValue (NOTE: this one's not a list but acts like it)
+ #       volumes:
+ #         - ./wordpress-data:/var/www/html
+ 
