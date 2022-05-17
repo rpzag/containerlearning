@@ -1,14 +1,14 @@
 version: '3.1'
 
 services: # containers. same as docker run.
-  servicename: drupalrp
+  drupalrp:
     image: drupal:latest
     ports: 
       - '8080:80'
     volumes: # optional, same as -v in docker run
     depends_on: # optional, other service names that there's a dependancy for
   
-  servicename2: postgresrp
+  postgresrp:
     image: postgres
     ports:
       - 443
