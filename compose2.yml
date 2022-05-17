@@ -15,7 +15,8 @@ services: # containers. same as docker run.
       POSTGRES_USER: user
       POSTGRES_PASSWORD: passw0rdda
     volumes: 
-      - 'drupal-modules:/var/www/html/modules'
+      - type: volume
+        source: 'drupalmodules:/var/www/html/modules'
   
   
  ## Example:
