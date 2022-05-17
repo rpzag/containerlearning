@@ -4,7 +4,7 @@ services: # containers. same as docker run.
   drupalrp:
     image: drupal:latest
     ports: 
-      - '8080:80'
+      - '80:80'
   
   postgresrp:
     image: postgres
