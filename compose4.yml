@@ -4,6 +4,23 @@ version: '3.1'
 # proxy server needs port 80
 
 services: # containers. same as docker run.
+
+  drupalrp:
+    image: drupal:latest
+    ports: 
+      - '80:80'
+  
+  postgresrp:
+    image: postgres
+    ports:
+      - 443
+    environment:
+      POSTGRES_DB: drupal
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: passw0rdda
+    volumes: 
+        - './datadrupalmodules:/var/www/html/modules'
+
   proxy:
     build:
       context: .
