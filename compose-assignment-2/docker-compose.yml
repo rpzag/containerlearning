@@ -1,0 +1,25 @@
+version: '3.1'
+
+# this is a build example. builds a custom image as a proxy server, launches a website that points to an existing mount pount where html files exist
+# proxy server needs port 80
+
+services: # containers. same as docker run.
+
+  custom-drupal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - '80:80'
+  
+  postgresrp:
+    image: postgres
+    ports:
+      - 443
+    environment:
+      POSTGRES_DB: drupal
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: passw0rdda
+    volumes: 
+        - './datadrupalmodules:/var/www/html/modules'
+        - './drupal-data:/var/lib/postgresql/data'
