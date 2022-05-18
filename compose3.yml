@@ -1,6 +1,7 @@
 version: '3.1'
 
-# this is a build example. builds a custom image and launches a website that points to an existing mount pount where html files exist
+# this is a build example. builds a custom image as a proxy server, launches a website that points to an existing mount pount where html files exist
+# proxy server needs port 80
 
 services: # containers. same as docker run.
   proxy:
