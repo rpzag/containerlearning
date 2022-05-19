@@ -5,7 +5,11 @@ services: # containers. same as docker run.
     image: drupal:latest
     ports: 
       - '80:80'
-  
+    volumes: 
+      - './datadrupalmodules:/var/www/html/modules'
+      - './datadrupalprofiles:/var/www/html/profiles'
+      - './datadrupalsites:/var/www/html/sites'
+      - './datadrupalthemes:/var/www/html/themes'
   postgresrp:
     image: postgres
     ports:
@@ -14,11 +18,7 @@ services: # containers. same as docker run.
       POSTGRES_DB: drupal
       POSTGRES_USER: user
       POSTGRES_PASSWORD: passw0rdda
-    volumes: 
-        - './datadrupalmodules:/var/www/html/modules'
-        - './datadrupalprofiles:/var/www/html/profiles'
-        - './datadrupalsites:/var/www/html/sites'
-        - './datadrupalthemes:/var/www/html/themes'
+
   
 volumes:
     datadrupalmodules:
