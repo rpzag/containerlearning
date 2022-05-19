@@ -22,10 +22,10 @@ services: # containers. same as docker run.
 
   
 volumes:
-    drupalmodules:
-    drupalprofiles:
-    drupalsites:
-    drupalthemes:
+    drupal-modules:
+    drupal-profiles:
+    drupal-sites:
+    drupal-themes:
   
  ## Example:
  # same as docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
