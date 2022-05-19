@@ -20,7 +20,7 @@ services: # containers. same as docker run.
         - './datadrupalsites:/var/www/html/sites'
         - './datadrupalthemes:/var/www/html/themes'
   
- volumes:
+volumes:
     datadrupalmodules:
     datadrupalprofiles:
     datadrupalsites:
