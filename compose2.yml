@@ -19,6 +19,9 @@ services: # containers. same as docker run.
       POSTGRES_DB: drupal
       POSTGRES_USER: user
       POSTGRES_PASSWORD: passw0rdda
+      POSTGRES_PASSWORD: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgresdb:/var/lib/postgresql/data
 
   
 volumes:
@@ -26,6 +29,7 @@ volumes:
     drupal-profiles:
     drupal-sites:
     drupal-themes:
+    postgresdb:
   
  ## Example:
  # same as docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
