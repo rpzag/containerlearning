@@ -16,9 +16,9 @@ services: # containers. same as docker run.
       POSTGRES_PASSWORD: passw0rdda
     volumes: 
         - './datadrupalmodules:/var/www/html/modules'
-	      - './datadrupalprofiles:/var/www/html/profiles'
-	      - './datadrupalsites:/var/www/html/sites'
-	      - './datadrupalthemes:/var/www/html/themes'
+        - './datadrupalprofiles:/var/www/html/profiles'
+        - './datadrupalsites:/var/www/html/sites'
+        - './datadrupalthemes:/var/www/html/themes'
   
  volumes:
     datadrupalmodules:
